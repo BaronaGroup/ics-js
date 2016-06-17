@@ -1,8 +1,8 @@
 import propertyTest from '../../helpers/propertyTest'
 
 propertyTest('EXDATE', {
-  transformableValue: [new Date('1991-03-07 09:00:00'), new Date('1991-07-11 20:00:00')],
-  transformedValue: '19910307T090000,19910711T200000'
+  transformableValue: [new Date('1991-03-07T09:00:00Z'), new Date('1991-07-11T20:00:00Z')],
+  transformedValue: '19910307T090000Z,19910711T200000Z'
 })
 
 propertyTest('EXDATE', {

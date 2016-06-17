@@ -10,17 +10,21 @@ import leftpad from 'left-pad'
 export default (date, includeTime = true) => {
   let string
 
-  string =
-    date.getFullYear() +
-    leftpad(date.getMonth() + 1, 2, 0) +
-    leftpad(date.getDate(), 2, 0)
-
-  if (includeTime) {
-    string +=
+  if (!includeTime) {
+    string =
+      date.getFullYear() +
+      leftpad(date.getMonth() + 1, 2, 0) +
+      leftpad(date.getDate(), 2, 0)
+  } else {
+    string =
+      date.getUTCFullYear() +
+      leftpad(date.getUTCMonth() + 1, 2, 0) +
+      leftpad(date.getUTCDate(), 2, 0) +
       'T' +
-      leftpad(date.getHours(), 2, 0) +
-      leftpad(date.getMinutes(), 2, 0) +
-      leftpad(date.getSeconds(), 2, 0)
+      leftpad(date.getUTCHours(), 2, 0) +
+      leftpad(date.getUTCMinutes(), 2, 0) +
+      leftpad(date.getUTCSeconds(), 2, 0) +
+      'Z'
   }
 
   return string
